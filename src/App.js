@@ -10,7 +10,7 @@ function App() {
  
   const [items,setItem]=useState(
    JSON.parse(localStorage.getItem('todo_list')) !== null ?
-    JSON.parse(localStorage.getItem('todo_list')) : [])
+    JSON.parse(localStorage.getItem('todo_list')) : []
   )
   const [del,setDel]=useState('')
   const [newItem,setnewItem] =useState('')
