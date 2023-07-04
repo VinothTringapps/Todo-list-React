@@ -3,7 +3,8 @@
   return (
     <form onSubmit={handlesubmit}>
         <div className="add">
-        <input type="text"  id="addItems"  value={newItem} onChange={(e)=>setnewItem(e.target.value) }/>
+        <input type="text" autocomplete="off"
+          id="addItems"  value={newItem} onChange={(e)=>setnewItem(e.target.value) }/>
         <button type="submit">+</button>
         </div>
     </form>

@@ -5,7 +5,7 @@ const SearchItem = (props) =>
     <div className="search-cont">
     <form className="search" onSubmit={(e)=>e.preventDefault()}>
     <div>⫷</div>
-        <input type="text" 
+        <input autocomplete="off" type="text" 
         placeholder="Search Item"
         value={search}
         onChange={(e)=>setSearch(e.target.value)}
