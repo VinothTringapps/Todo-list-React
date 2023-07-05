@@ -154,3 +154,18 @@ p{
   
 
 }
+.raiseNewItems{
+  width:200px;
+  height: 50px;
+  color: white;
+  position:fixed;
+  top:10%;
+  left:65%;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  border-radius:10px;
+  border: 2px dotted red;
+  color:white;
+  background-color: red;
+}

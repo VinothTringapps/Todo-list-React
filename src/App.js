@@ -17,16 +17,22 @@ function App() {
   const addItem=(work)=>{
     const id=items.length ? items[items.length-1].id+1 :1;
     const AddnewItem={id,work,check:false}
-    const current=[...items,AddnewItem]
+    const show =items.filter((item)=>(item.work.toLowerCase()!==AddnewItem.work.toLowerCase()))
+    let current = [...items]
+    if(show.length === items.length){
+      current=[...items,AddnewItem]
+    }
+    if(show.length !==items.length){
+      raiseNewitem()
+    }
+    
     setItem(current)
     localStorage.setItem('todo_list',JSON.stringify(current))
   }
 
   const handlesubmit=(e)=>{
     e.preventDefault();
-    console.log('Submit')
     if(!newItem) return;
-    console.log(newItem)
     addItem(newItem)
     setnewItem('')
   }
@@ -35,6 +41,15 @@ function App() {
     setItem(current)
     localStorage.setItem('todo_list',JSON.stringify(current))
   }
+  const [insert,setInsert]=useState('')
+  const raiseNewitem=()=>{
+    setInsert('Task is Already in a list')
+    document.getElementById('ras').style.visibility='visible' 
+    setTimeout(()=>{
+    setInsert('');
+    document.getElementById('ras').style.visibility="hidden"
+    },2000)
+   }
   const raise=()=>{
     setDel('Finish The Task')
     document.getElementById('rf').style.visibility="visible" 
@@ -50,6 +65,8 @@ function App() {
   return (
     <div className="Main">
       <div className="raise" style={{visibility:"hidden"}}  id="rf">{del}</div>
+      <div className="raiseNewItems" style={{visibility:"hidden"}}  id="ras">{insert}</div>
+
       <Header title="Vinoth"/>
       <Add newItem={newItem} setnewItem={setnewItem} handlesubmit={handlesubmit}/>
       <SearchItem  search={search} setSearch={setSearch}/>
