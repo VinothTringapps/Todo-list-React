@@ -8,7 +8,12 @@ import Add from './Add';
 import SearchItem from './SearchItem';
 function App() {
  
+<<<<<<< HEAD
   const [items,setItem]=useState( JSON.parse(localStorage.getItem('todo_list')) !== null ?
+=======
+  const [items,setItem]=useState(
+   JSON.parse(localStorage.getItem('todo_list')) !== null ?
+>>>>>>> origin/master
     JSON.parse(localStorage.getItem('todo_list')) : []
   )
   const [del,setDel]=useState('')
